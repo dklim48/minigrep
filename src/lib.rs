@@ -21,3 +21,19 @@ pub mod config {
         }
     }
 }
+
+#[cfg(test)]
+mod config_tests {
+    use crate::config::Config;
+
+    // use super::*;
+
+    #[test]
+    fn constructor_works() {
+        let args = [String::from(""), String::from("")];
+        let new_config = Config::new(&args);
+
+        assert_eq!(new_config.query, "");
+        assert_eq!(new_config.file_path, "");
+    }
+}

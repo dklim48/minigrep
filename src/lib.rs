@@ -19,6 +19,17 @@ pub mod config {
 
             Config { query, file_path }
         }
+
+        pub fn build(args: &[String]) -> Result<Config, &'static str> {
+            if args.len() < 3 {
+                return Err("Not enough arguements");
+            }
+
+            let query = args[1].clone();
+            let file_path = args[2].clone();
+
+            Ok(Config { query, file_path })
+        }
     }
 }
 

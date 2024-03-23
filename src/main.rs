@@ -2,7 +2,7 @@ use minigrep::Config;
 use std::{env, process};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    // let args: Vec<String> = env::args().collect();
     // let parsed_results = Config::new(&args);
     // let mut parsed_results: Config = Config {
     //     query: String::from(""),
@@ -13,7 +13,7 @@ fn main() {
     //     parsed_results = configration;
     // }
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {err}");
         process::exit(1);
     });
